@@ -1,0 +1,22 @@
+﻿using ERPServer.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ERPServer.Infrastructure.Configurations
+{
+    // burada veri tabanında yer alacak olan Customer tablosunun property'lerinin konfigürasyonunu yapıyorouz.
+    // Kullandığımız interface ef'nin kendi içinde hazır gelen interface'idir.  
+    internal sealed class CustomerConfiguration: IEntityTypeConfiguration<Customer>
+    {
+        public void Configure(EntityTypeBuilder<Customer> builder)
+        {
+            builder.Property(p => p.TaxNumbers).HasColumnType("varchar(11)");
+        }
+
+    }
+}

@@ -12,6 +12,9 @@ namespace ERPServer.Infrastructure.Context
         {
         }
 
+        // veritabanında, ilgili tabloyu oluşturduk.
+        public DbSet<Customer> Customers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(typeof(DependencyInjection).Assembly);
