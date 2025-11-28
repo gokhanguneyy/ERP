@@ -4,6 +4,7 @@ import { LayoutsComponent } from './components/layouts/layouts.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './services/auth.service';
 import { inject } from '@angular/core';
+import { CustomersComponent } from './components/customers/customers.component';
 
 export const routes: Routes = [
     {
@@ -20,6 +21,10 @@ export const routes: Routes = [
             {
                 path: "",
                 component: HomeComponent
+            },
+            {
+                path: "customers",
+                component: CustomersComponent
             }
         ]
     }
