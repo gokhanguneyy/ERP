@@ -15,7 +15,7 @@ namespace ERPServer.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.Property(p => p.TaxNumbers).HasColumnType("varchar(11)");
+            builder.Property(p => p.TaxNumber).HasColumnType("varchar(11)");
         }
 
     }
