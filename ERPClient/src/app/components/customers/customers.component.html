@@ -42,7 +42,7 @@
             <td>{{ customer.town }}</td>
             <td>{{ customer.fullAddress }}</td>
             <td>
-              <button class="btn btn-outline-primary btn-sm  me-1">
+              <button data-toggle="modal" data-target="#updateModal" (click)="get(customer)" class="btn btn-outline-primary btn-sm  me-1">
                 <i class="fa-solid fa-edit"></i>
               </button>
               <button (click)="deleteById(customer)" class="btn btn-outline-danger btn-sm">
@@ -62,7 +62,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5">Modal title</h1>
+        <h1 class="modal-title fs-5">Müşteri Ekleme Formu</h1>
         <button type="button" #createModalCloseBtn class="btn btn-outline-danger" data-dismiss="modal">
             <i class="fa-solid fa-x"></i>
         </button>
@@ -95,7 +95,53 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-darkE w-100">Kaydet</button>
+          <button type="submit" class="btn btn-dark w-100">Kaydet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Müşteri Güncelleme Formu</h1>
+        <button type="button" #updateModalCloseBtn class="btn btn-outline-danger" data-dismiss="modal">
+            <i class="fa-solid fa-x"></i>
+        </button>
+      </div>
+      <form #updateForm="ngForm" (ngSubmit)="update(updateForm)">
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Müşteri Adı</label>
+                <input type="text" [(ngModel)]="updateModel.name" class="form-control" name="updateName"> 
+            </div>
+            <div class="form-group">
+                <label>Vergi Dairesi</label>
+                <input type="text" [(ngModel)]="updateModel.taxDepartment" class="form-control" name="updateTaxDepartment"> 
+            </div>
+            <div class="form-group">
+                <label>Vergi Numarası</label>
+                <input type="text" [(ngModel)]="updateModel.taxNumber" class="form-control" name="updateTaxNumber" maxlength="11"> 
+            </div>
+            <div class="form-group">
+                <label>Şehir</label>
+                <input type="text" [(ngModel)]="updateModel.city" class="form-control" name="updateCity"> 
+            </div>
+            <div class="form-group">
+                <label>İlçe</label>
+                <input type="text" [(ngModel)]="updateModel.town" class="form-control" name="updateTown"> 
+            </div>
+            <div class="form-group">
+                <label>Açık Adres</label>
+                <textarea [(ngModel)]="updateModel.fullAddress" class="form-control" name="updateFullAddress" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary w-100">Güncelle</button>
         </div>
       </form>
     </div>
