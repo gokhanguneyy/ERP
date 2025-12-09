@@ -13,9 +13,9 @@ namespace ERPServer.Application.Features.RecipeDetails.GetRecipeByIdWithDetails
         {
             Recipe? recipe =
                 await recipeRepository
-                .Where(p => p.Id == request.Id)
+                .Where(p => p.Id == request.RecipeId)
                 .Include(p => p.Product)
-                .Include(p => p.Details!)
+                .Include(p => p.Details!.OrderBy(p => p.product!.Name))
                 .ThenInclude(p => p.product)
                 .FirstOrDefaultAsync(cancellationToken);
 

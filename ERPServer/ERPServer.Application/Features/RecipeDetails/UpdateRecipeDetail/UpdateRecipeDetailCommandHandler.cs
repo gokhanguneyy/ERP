@@ -3,6 +3,7 @@ using ERPServer.Domain.Entities;
 using ERPServer.Domain.Repositories;
 using GenericRepository;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace ERPServer.Application.Features.RecipeDetails.UpdateRecipeDetail
                         p.Id != request.Id &&
                         p.ProductId == request.ProductId &&
                         p.RecipeId == recipeDetail.RecipeId)
-                .FirstOrDefaultAsync(cancellationToken);
+                        .FirstOrDefaultAsync(cancellationToken);
 
             if (oldRecipeDetail is not null)
             {
