@@ -21,7 +21,7 @@ namespace ERPServer.Application.Features.Recipes.CreateRecipe
             Recipe recipe = new()
             {
                 ProductId = request.ProductId,
-                RecipeDetails = request.Details.Select(s => new RecipeDetail()
+                Details = request.Details.Select(s => new RecipeDetail()
                 {
                     ProductId = s.ProductId,
                     Quantity = s.Quantity,
