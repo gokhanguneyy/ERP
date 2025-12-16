@@ -9,11 +9,12 @@ import { DatePipe } from '@angular/common';
 import { OrderPipe } from '../../pipes/order.pipe';
 import { OrderModel } from '../../models/order.model';
 import { OrderDetailModel } from '../../models/order-detail.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [SharedModule, OrderPipe],
+  imports: [SharedModule, OrderPipe, RouterLink],
   providers: [DatePipe],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
