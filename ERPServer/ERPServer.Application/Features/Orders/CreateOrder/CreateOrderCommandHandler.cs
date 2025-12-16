@@ -24,7 +24,7 @@ namespace ERPServer.Application.Features.Orders.CreateOrder
             if(lastOrder is not null) lastOrderNumber = lastOrder.OrderNumber;
 
             Order order = mapper.Map<Order>(request);
-            order.OrderNumber = lastOrderNumber++;
+            order.OrderNumber = lastOrderNumber+1;
             order.OrderNumberYear = request.Date.Year;
 
             await orderRepository.AddAsync(order, cancellationToken);
