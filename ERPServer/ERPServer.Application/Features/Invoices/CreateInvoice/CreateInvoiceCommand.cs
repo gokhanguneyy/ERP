@@ -14,5 +14,6 @@ namespace ERPServer.Application.Features.Invoices.CreateInvoice
         int TypeValue,
         DateOnly Date,
         string InvoiceNumber,
-        List<InvoiceDetailDto> Details) : IRequest<Result<string>>;
+        List<InvoiceDetailDto> Details,
+        Guid? OrderId) : IRequest<Result<string>>;
 }
