@@ -1,4 +1,6 @@
-﻿using ERPServer.Domain.Dtos;
+﻿using AutoMapper.Features;
+using ERPServer.Domain.Dtos;
+using ERPServer.Domain.Entities;
 using MediatR;
 using TS.Result;
 
